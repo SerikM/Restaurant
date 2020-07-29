@@ -1,0 +1,45 @@
+﻿<br />
+<br />
+<section class="section-shadow section-light-grey section-thumbnails">
+    <div class="container">
+        <div class="col-md-12">
+            <h3>Add or Update carousel slides here</h3>
+        </div>
+
+        <div class="row">
+            <div ng-repeat="slide in slides">
+                <div class="clearfix" ng-if="$index % 4 == 0"></div>
+                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                    <form enctype="multipart/form-data" ng-attr-action="/api/Admin/UploadSlide"
+                          ng-upload="imageSaveCompleted(response)">
+                        <div class="form-group">
+                            <div class="col-md-12 col-lg-12 col-sm-12">
+                             <img ng-model="slide.IMAGE" class="img-fluid img-thumbnail img-responsive" ng-src="data:image/JPEG;base64,{{slide.IMAGE}}">
+                            </div>
+                            <input type="hidden" name="id" value="{{ slide.ID }}" />
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                <label class="btn btn-default btn-file col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                    Browse   <input name="file" id="file-input-{{slide.ID}}" data-target-slide="{{slide.ID}}" custom-on-change="selectFile" style="display:none;" type="file" />
+                                </label>
+                                <label class="btn btn-default btn-file col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                    Save<input ng-click="saveSlideImage($event)" data-target-slide="{{slide.ID}}" type="submit" style="display: none;" />
+                                </label>
+                                
+                                <!--delete button-->
+                                <label class="btn btn-default btn-file col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                    Delete<input ng-click="deleteSlide($event)" data-target-slide="{{slide.ID}}" type="submit" style="display: none;" />
+                                </label>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 new-event-link">
+                <a href="#" ng-click="addNewSlideBox()">new slide</a>
+            </div>
+        </div>
+    
+    </div>
+    </section>
+

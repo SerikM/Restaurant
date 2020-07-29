@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h3 class="modal-title">Confirm reservation</h3>
+</div>
+
+<div class="modal-body">
+    <h5><bold>{{confirmationModalCtrl.confirmationParams.name}}</bold>, are you sure you want to reserve date {{confirmationModalCtrl.confirmationParams.selectedDate}} at {{confirmationModalCtrl.confirmationParams.selectedHour}}?. for {{confirmationModalCtrl.confirmationParams.quantity}} person(s)</h5>
+
+    <div ng-repeat="(key, value) in confirmationModalCtrl.userData track by $index">
+        <label class="control-label">{{key}}</label>
+
+        <h5>{{value}}</h5>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-danger" type="button" ng-click="$dismiss()">Cancel</button>
+    <button class="btn btn-success" type="button" ng-click="$close()">Confirm</button>
+</div>

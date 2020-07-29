@@ -1,0 +1,32 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:51189/",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "workingDirectory": "C:\\GitRepos\\Store\\Store.Web",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:51189/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:51189/"
+    },
+    "IIS": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\inetpub\\wwwroot\\mvccore",
+      "launchBrowser": true,
+      "launchUrl": "http://mvccore:8000/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "applicationUrl": "http://mvccore:8000/"
+    }
+  }
+}

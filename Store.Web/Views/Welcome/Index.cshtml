@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html ng-app="store">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RumpusRoom</title>
+    <!--styles section-->
+    <link rel="stylesheet" href="~/css/dest/vendor.min.css" asp-append-version="true" />
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/dest/site.css" asp-append-version="true" />
+    </environment>
+    <environment names="Production">
+        <link rel="stylesheet" href="~/css/dest/site.min.css" asp-append-version="true" />
+    </environment>
+    <!--styles section end-->
+    <!--setting base url for html5 mode-->
+    <base href="/">
+</head>
+<body ng-controller="rootCtrl">
+   
+        <top-bar></top-bar>
+        <left-bar></left-bar>
+        <div class="body-content">
+            <div class="page {{ pageClass }}" ng-cloak ng-view>
+            </div>
+         </div>
+    <bottom-bar></bottom-bar>
+
+    <!--spinner-->
+    <span class="spinnerContainer" us-spinner="{position:fixed, radius:30, width:8, length: 16, shadow: true, color: '#fff'}" spinner-key="spinner-1" spinner-start-active="true">
+        <span class="spinnerlabel">Please Do Not Refresh The Page</span>
+    </span>
+    <div class="spinnerContainer spinnerOverlay" ng-show="spinnerActive"></div>
+    <!--spinner end-->
+
+
+    <!--scripts section-->
+    <script src="~/js/dest/vendor.min.js" asp-append-version="true"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASEbazC8ukiZYhVfJK9xPDUyhHr15j6GM"></script>
+    <environment names="Development">
+        <script src="~/js/dest/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Production">
+        <script src="~/js/dest/site.min.js" asp-append-version="true"></script>
+    </environment>
+    <!--scripts section end-->
+
+</body>
+</html>
+
+

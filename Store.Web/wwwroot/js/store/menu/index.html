@@ -1,0 +1,93 @@
+﻿<section class="section-#303030 section-txt section-shadow">
+    <div class="container">
+        <div class="row">
+            <div class="company-name col-xs-12">
+                <p>
+                    <span>
+                     OUR MENU
+                    </span>
+                </p>
+                <p>
+                    <span class="caption">
+                        Ut odio risus, placerat quis sollicitudin vitae
+                    </span>
+                </p>
+                <div id="goToMenu" data-target="myMenu" class="scrollDown">
+                    <a href=""><span></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<span id="myMenu"></span>
+<div ng-repeat="menu in menus">
+    <div class="row">
+        <div class="header-banner col-md-12 col-sm-12 col-xs-12 col-lg-12" style="background: url(data:image/JPEG;base64,{{menu.BANNER}});">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="menu-pdf hide-sm">
+
+                            <a href="#" id="down-link-{{menu.ID}}" ng-click="downloadPdf($event, menu)" class="btn btn-antiquewhite btn-download">
+                                <span class="icon-down-small"></span>
+                                Download as PDF
+                            </a>
+                        </div>
+                        <div class="box-campaing">
+                            <p><span>{{menu.NAME}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="region-boxes">
+        <div class="container">
+            <div class="row">
+                <div class="row row-padding">
+                    <div ng-repeat="dish in menu.ITEMS">
+                        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-6">
+                            <div class="flip-container">
+                                <div class="front">
+                                    <div class="box box-with-border">
+                                        <div class="wrap-img">
+                                            <div class="wrap-icon">
+                                             <span ng-if="dish.IS_SPECIAL==true" class="wrap-icon-txt red">
+                                                   special
+                                                </span>
+                                            </div>
+                                            <img class="img-fluid img-thumbnail img-responsive" ng-src="data:image/JPEG;base64,{{dish.IMAGE}}" />
+                                            
+                                        </div>
+                                        <div class="wrap-description">
+                                            <p>
+                                                <h3>
+                                                    {{dish.NAME}}....<bold>${{dish.PRICE}}</bold>
+                                                </h3>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <div class="txt">
+                                        <strong>
+                                            <bold>{{dish.NAME}}</bold>
+                                        </strong>&nbsp;&nbsp;&nbsp;&nbsp;<bold>${{dish.PRICE}}</bold>
+                                        <p>{{dish.DESCRIPTION}} </p>
+                                        <a class="btn btn-lg" ng-href="/bookings">Book now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

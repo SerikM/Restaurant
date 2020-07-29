@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[EVENTS] (
+    [ID]          INT            IDENTITY (1, 1) NOT NULL,
+    [DESCRIPTION] NVARCHAR (MAX) NULL,
+    [NAME]        NVARCHAR (MAX) NULL,
+    [DATE]        DATETIME2 (7)  NULL,
+    CONSTRAINT [PK_EVENTS] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+

@@ -1,0 +1,43 @@
+﻿<section class="section-#303030 section-txt section-shadow">
+    <div class="container">
+        <div class="row">
+            <div class="company-name col-xs-12">
+                <p>
+                    <span>
+                      WHAT'S ON
+                    </span>
+                </p>
+                <p>
+                    <span class="caption">
+                        Ut odio risus, placerat quis sollicitudin vitae
+                    </span>
+                </p>
+                <div id="goToEvents" data-target="whatson" class="scrollDown">
+                    <a href=""><span></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div id="whatson" class="whatson">
+        <div class="row whatson-row" ng-repeat="item in events">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <h1>{{item.NAME}}</h1>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <h4>{{item.DESCRIPTION}}</h4>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div owl-carousel class="owl-carousel owl-theme">
+                    <div owl-carousel-item data-videourl="{{mediaItem.URL}}" data-imagedata="{{mediaItem.IMAGE}}" class="item" ng-repeat="mediaItem in item.MEDIAS">
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+

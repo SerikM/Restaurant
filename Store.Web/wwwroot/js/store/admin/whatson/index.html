@@ -1,0 +1,106 @@
+﻿<br />
+<br />
+
+<section class="section-shadow section-light-grey section-thumbnails">
+    <div class="container">
+        <div class="col-md-12">
+            <h3>Add or update events here</h3>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 new-event-link">
+                <a href="#" ng-click="addNewEventBox()">new event</a>
+            </div>
+        </div>
+
+        <div ng-repeat="event in events">
+            
+            <hr />
+            <div class="row">
+             <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <!--event details start here-->
+              <form ng-submit="saveEventDetails(event)">
+
+              <div class="form-group">
+              <input ng-model="event.ID" name="eventId" type="hidden" value="{{event.ID}}" />
+
+               <input class="col-md-12 col-lg-12 col-sm-12 col-xs-12" ng-model="event.NAME" name="name" type="text" placeholder="Event Name" value="{{event.NAME}}" />
+
+                <input class="col-md-12 col-lg-12 col-sm-12 col-xs-12" ng-model="event.DESCRIPTION" name="description" type="text" placeholder="Event Description" value="{{event.DESCRIPTION}}" />
+
+                  <!--save event button-->
+                 <label  class="btn btn-default btn-file col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                 Save<input type="submit" style="display: none;" />
+                 </label>
+
+                  <!--delete event button-->
+                  <label class="btn btn-default btn-file col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                      Delete<input ng-click="deleteEvent($event)" data-target-event="{{event.ID}}" type="submit" style="display: none;" />
+                  </label>
+
+                 </div>
+                </form>
+              </div>
+
+          <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+              <div ng-repeat="mediaItem in event.MEDIAS">
+            <div class="clearfix" ng-if="$index % 3 == 0"></div>
+            <!--update image cell-->
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+              <form enctype="multipart/form-data" ng-attr-action="/api/Admin/SaveEventImage"
+                                  ng-upload="eventMediaUpdateCompleted()">
+
+                <div class="form-group">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                <img ng-if="mediaItem.IMAGE" class="fancybox img-fluid img-thumbnail img-responsive"
+                               ng-src="data:image/JPEG;base64,{{mediaItem.IMAGE}}">
+
+                <div ng-if="mediaItem.URL">
+                 <div class="profile-img-container">
+                 <img class="img-thumbnail img-responsive" src="/images/video-backgr.jpg"/>
+                  <a class="fancybox" ng-href="{{mediaItem.URL}}">
+                     <span class="fa fa-play-circle fa-5x"></span>
+                 </a>
+                 </div>
+                  <input class="col-md-12 col-lg-12 col-sm-12 col-xs-12" ng-if="mediaItem.URL" id="video-url-input-{{mediaItem.ID}}" value="{{mediaItem.URL}}"
+                               name="videoUrl" type="text" />
+                </div>
+                </div>
+
+                <input type="hidden" name="mediaId" value="{{mediaItem.ID}}" />
+                <input type="hidden" name="eventId" value="{{event.ID}}" />
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+
+                 <!--browse button-->
+                  <label ng-if="mediaItem.IMAGE" class="btn btn-default btn-file col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                  Browse   <input  name="eventImage" id="file-input-{{mediaItem.ID}}" 
+                                  data-target-media="{{mediaItem.ID}}" custom-on-change="selectFile" style="display:none;" type="file" />
+                 </label>
+
+                 <!--save button-->
+                  <label  class="btn btn-default btn-file col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                  Save<input ng-click="saveEventMedia($event)" data-target-media="{{mediaItem.ID}}" type="submit" style="display: none;" />
+                 </label>
+
+                  <!--delete button-->
+                  <label  class="btn btn-default btn-file col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                  Delete<input ng-click="deleteMedia($event)" data-target-media="{{mediaItem.ID}}" type="submit" style="display: none;" />
+                  </label>
+
+                 </div>
+               </div>
+              </form>
+            </div>
+
+          </div>
+          <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 new-event-link">
+                   <a href="#" ng-click="addNewImageBox(event)">new image</a>
+                   <a href="#" ng-click="addNewVideoBox(event)">new video</a>
+               </div>
+         </div>
+       </div> 
+      </div>
+        </div>
+</section>
+
+
